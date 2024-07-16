@@ -1,13 +1,33 @@
 batch_size: 128
 epochs: 80
-lr: 0.001
+lr: 3e-4
 
 device: cuda:0
-num_workers: 4
+num_workers: 8
 seed: 1234
 use_wandb: False
 
 data_dir: data
-
+image_dir: Images
+accumulation_steps: 1
+early_stop_patience: 10
 # Evaluation
-model_path: 
+model_path:
+
+# CombinedMegEncoder
+in_channels: 271
+out_channels: 320
+depth: 5
+dilation: 4
+time_steps: 144
+num_channels: 325
+num_subjects: 4
+num_classes: 1854
+
+# Loss function parameters
+alpha: 0.3
+beta: 0.7
+
+#Pretraining
+image_pretrain_epochs: 10
+pre_batch_size: 512
